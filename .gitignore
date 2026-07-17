@@ -1,0 +1,21 @@
+# Entornos
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# Variables de entorno / secretos
+.env
+*.key
+
+# Base de datos vectorial persistida
+data/chroma/
+data/*.sqlite3
+
+# Sistema
+.DS_Store
+*.log
+
+# IDE
+.vscode/
+.idea/
