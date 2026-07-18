@@ -129,6 +129,10 @@ alura-agente-rag/
 
 <img width="302" height="632" alt="image" src="https://github.com/user-attachments/assets/0ba3ae1f-99f7-472e-b2ef-2ab24f068c09" />
 
+
+https://github.com/user-attachments/assets/946195a4-c199-4b9a-a11a-1922b7e27811
+
+
 ## Autor
 
 Juan David Olarte Hernández — Challenge Alura Agente (ONE)
