@@ -19,7 +19,7 @@ en distintos formatos (Markdown, Word, PDF).
 - [x] Generación de embeddings e indexación vectorial (ChromaDB + Gemini Embeddings)
 - [x] Búsqueda semántica + generación de respuestas con citación de fuente
 - [x] Interfaz conversacional (Streamlit), con opción de subir nuevos documentos
-- [ ] Despliegue en la nube (Streamlit Community Cloud)
+- [x] Despliegue en la nube (Streamlit Community Cloud)
 
 ## Documentos incluidos (datos ficticios)
 
@@ -37,6 +37,11 @@ en distintos formatos (Markdown, Word, PDF).
 - **Base de datos vectorial:** ChromaDB (persistida localmente en `data/chroma/`)
 - **Interfaz:** Streamlit, con función de subir nuevos documentos desde la propia app
 - **Despliegue:** Streamlit Community Cloud
+
+> **Nota:** el pipeline RAG (extracción, chunking, embeddings, búsqueda semántica y generación)
+> está implementado directamente con el SDK de Gemini y ChromaDB, sin frameworks de
+> orquestación como LangChain o LangGraph. Esto fue una decisión intencional para demostrar
+> el funcionamiento interno del RAG paso a paso.
 
 ## Cómo ejecutar
 
@@ -88,10 +93,41 @@ alura-agente-rag/
 └── .env.example
 ```
 
-## Captura / Video del agente en ejecución
-<img width="1365" height="647" alt="image" src="https://github.com/user-attachments/assets/122d6c42-53ab-4925-a365-95b517eaf0be" />
+## Ejemplos de preguntas y respuestas
 
-*(Se agregará aquí una vez desplegado )*
+**P: ¿Cuánto tiempo tengo para devolver un producto?**
+> R: El cliente cuenta con 15 días calendario a partir de la fecha de entrega para solicitar la devolución de un producto.
+> 📄 *Fuente: politica_reembolsos.docx*
+
+**P: ¿Hacen envíos a otros países?**
+> R: Sí, TiendaLuna realiza envíos internacionales a México, Chile, Perú y Ecuador.
+> 📄 *Fuentes: faq.pdf, guia_envios.docx*
+
+**P: ¿Qué pasa con mis datos personales si elimino mi cuenta?**
+> R: Si eliminas tu cuenta, tienes el derecho a solicitar la eliminación de tus datos personales, conocido como "derecho al olvido". Estas solicitudes se atienden en un plazo máximo de 10 días hábiles. Además, los datos de cuentas inactivas por más de 3 años son eliminados o anonimizados, salvo obligación legal de conservarlos.
+> 📄 *Fuente: politica_privacidad.md*
+
+**P: ¿Cuál es el costo de envío a una zona rural?**
+> R: El envío a zona rural o apartada cuesta $18.000 COP, con un tiempo estimado de 5 a 8 días hábiles.
+> 📄 *Fuente: guia_envios.docx*
+
+**P: ¿Puedo devolver ropa interior si no me gustó?**
+> R: No, la ropa interior y los trajes de baño no son elegibles para devolución por razones de higiene.
+> 📄 *Fuente: politica_reembolsos.docx*
+
+**P: que pasa si me no alcanzo los 10 dias habiles** *(pregunta ambigua, respuesta honesta)*
+> R: El contexto proporcionado no contiene información sobre qué sucede si no se alcanzan los 10 días hábiles en relación con una acción del cliente. La mención de "10 días hábiles" en los documentos se refiere al plazo en el que TiendaLuna procesa un reembolso, no a un plazo para el cliente.
+> 📄 *Fuentes: guia_envios.docx, politica_reembolsos.docx*
+
+*(Este último ejemplo muestra que el agente no inventa respuestas cuando la pregunta no tiene suficiente contexto en los documentos — reconoce la ambigüedad y explica qué sí sabe.)*
+
+
+## Captura del agente en ejecución
+
+🔗 **URL en vivo:** https://alura-agente-rag-mcypscvu4ar3emvhqnctwb.streamlit.app
+<img width="1363" height="651" alt="image" src="https://github.com/user-attachments/assets/494c22e7-c86d-4710-8ae9-10951dcc9394" />
+
+<img width="302" height="632" alt="image" src="https://github.com/user-attachments/assets/0ba3ae1f-99f7-472e-b2ef-2ab24f068c09" />
 
 ## Autor
 
