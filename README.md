@@ -89,8 +89,9 @@ alura-agente-rag/
 ```
 
 ## Captura / Video del agente en ejecución
+<img width="1365" height="647" alt="image" src="https://github.com/user-attachments/assets/122d6c42-53ab-4925-a365-95b517eaf0be" />
 
-*(Se agregará aquí una vez desplegado en OCI)*
+*(Se agregará aquí una vez desplegado )*
 
 ## Autor
 
